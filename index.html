@@ -1,0 +1,330 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>ChartFlow Trading</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
+  <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+  <style>
+    :root {
+      --navy: #0e1a2b;
+      --gold: #B89D59;
+      --white: #ffffff;
+      --font: 'Inter', sans-serif;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: var(--font);
+      background-color: var(--white);
+      color: var(--navy);
+      line-height: 1.6;
+      font-size: 18px;
+    }
+
+    .container {
+      width: 90%;
+      max-width: 1200px;
+      margin: auto;
+      padding: 2rem 0;
+    }
+
+    header {
+      background: var(--navy);
+      color: var(--white);
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+    }
+
+    .nav {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 1rem 0;
+    }
+
+    .logo img {
+      height: 48px;
+    }
+
+    nav ul {
+      display: flex;
+      gap: 2rem;
+      list-style: none;
+    }
+
+    nav a {
+      color: var(--white);
+      text-decoration: none;
+      font-weight: 600;
+      font-size: 18px;
+    }
+
+    .cta {
+      background: var(--gold);
+      color: var(--navy);
+      padding: 0.5rem 1rem;
+      border-radius: 4px;
+    }
+
+    .hero {
+      background: var(--navy);
+      color: var(--white);
+      text-align: center;
+      padding: 4rem 2rem;
+    }
+
+    .hero h1 {
+      font-size: 3rem;
+      margin-bottom: 1rem;
+    }
+
+    .hero p {
+      font-size: 1.4rem;
+      margin-bottom: 2rem;
+    }
+
+    .btn-primary {
+      background: var(--gold);
+      color: var(--navy);
+      padding: 0.75rem 1.5rem;
+      font-weight: 600;
+      text-decoration: none;
+      border-radius: 5px;
+      font-size: 1.1rem;
+    }
+
+    .features {
+      display: flex;
+      justify-content: space-around;
+      text-align: center;
+      flex-wrap: wrap;
+      background: #f8f8f8;
+      padding: 3rem 1rem;
+    }
+
+    .feature {
+      flex: 1;
+      padding: 1rem;
+      min-width: 250px;
+    }
+
+    .feature i {
+      font-size: 2.5rem;
+      color: var(--gold);
+      margin-bottom: 0.75rem;
+    }
+
+    .feature h3 {
+      font-size: 1.4rem;
+      margin-bottom: 0.5rem;
+    }
+
+    .about-layout {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 2rem;
+      padding: 3rem 1rem;
+    }
+
+    .about-text h2,
+    .how-it-works h2,
+    .final-cta h2 {
+      font-size: 2rem;
+      margin-bottom: 1rem;
+    }
+
+    .about-text p {
+      font-size: 1.2rem;
+    }
+
+    .how-it-works {
+      background: #f0f0f0;
+      padding: 3rem 1rem;
+      text-align: center;
+    }
+
+    .how-it-works .steps {
+      display: flex;
+      justify-content: space-around;
+      flex-wrap: wrap;
+      gap: 2rem;
+      margin-top: 2rem;
+    }
+
+    .step {
+      flex: 1;
+      min-width: 200px;
+    }
+
+    .step h3 {
+      font-size: 1.4rem;
+      margin-bottom: 0.5rem;
+    }
+
+    .step p {
+      font-size: 1.1rem;
+    }
+
+    .final-cta {
+      background: var(--gold);
+      color: var(--navy);
+      text-align: center;
+      padding: 3rem 1rem;
+    }
+
+    footer {
+      background: var(--navy);
+      color: var(--white);
+      padding: 2rem 0;
+    }
+
+    .footer {
+      display: flex;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      align-items: center;
+    }
+
+    .footer-logo {
+      font-weight: 800;
+      font-size: 1.4rem;
+    }
+
+    .footer-links a,
+    .footer-social a {
+      margin-right: 1rem;
+      color: var(--white);
+      text-decoration: none;
+      font-size: 1.1rem;
+    }
+
+    @media (max-width: 768px) {
+      .about-layout,
+      .how-it-works .steps,
+      .footer {
+        flex-direction: column;
+        text-align: center;
+      }
+
+      .hero h1 {
+        font-size: 2rem;
+      }
+
+      .hero p {
+        font-size: 1rem;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <div class="container nav">
+      <div class="logo">
+        <img src="" alt="ChartFlow Logo">
+      </div>
+      <nav>
+        <ul>
+          <li><a href="#">Home</a></li>
+          <li><a href="#about">About</a></li>
+          <li><a href="#education">Education</a></li>
+          <li><a href="https://whop.com/chartflow" class="cta">Join Now</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <section class="hero">
+    <div class="container">
+      <h1>Join the Most Elite Trading Community in the Game</h1>
+      <p>Options. Stocks. Futures. Crypto. Real Traders. Real Results.</p>
+      <a href="https://whop.com/chartflow" class="btn-primary">Join Now</a>
+    </div>
+  </section>
+
+  <section class="features">
+    <div class="feature">
+      <i class="fas fa-chart-line"></i>
+      <h3>Daily Market Analysis</h3>
+      <p>Stay ahead with expert insights and trade setups.</p>
+    </div>
+    <div class="feature">
+      <i class="fas fa-bullhorn"></i>
+      <h3>Live Calls & Alerts</h3>
+      <p>Join our daily market calls and get real-time alerts.</p>
+    </div>
+    <div class="feature">
+      <i class="fas fa-briefcase"></i>
+      <h3>Millionaire Mentorship</h3>
+      <p>Learn from traders with real, proven results.</p>
+    </div>
+  </section>
+
+  <section id="about" class="about">
+    <div class="container about-layout">
+      <div class="about-text">
+        <h2>About ChartFlow</h2>
+        <p>We teach traders how to think, not just follow signals. ChartFlow combines education, mentorship, and a powerful community to help you win long-term.</p>
+      </div>
+      <div class="about-img">
+        <img src="https://via.placeholder.com/400x300" alt="About ChartFlow">
+      </div>
+    </div>
+  </section>
+
+  <section class="how-it-works">
+    <div class="container">
+      <h2>How It Works</h2>
+      <div class="steps">
+        <div class="step">
+          <h3>1. Join</h3>
+          <p>Get access to everything via our Whop link.</p>
+        </div>
+        <div class="step">
+          <h3>2. Learn</h3>
+          <p>Access our courses, calls, and trading tools.</p>
+        </div>
+        <div class="step">
+          <h3>3. Win</h3>
+          <p>Trade with confidence and support every day.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="final-cta">
+    <div class="container">
+      <h2>Ready to Start Winning in the Market?</h2>
+      <a href="https://whop.com/chartflow" class="btn-primary">Join Now on Whop</a>
+    </div>
+  </section>
+
+  <footer>
+    <div class="container footer">
+      <div class="footer-logo">ChartFlow</div>
+      <div class="footer-links">
+        <a href="#">Home</a>
+        <a href="#about">About</a>
+        <a href="#">Contact</a>
+      </div>
+      <div class="footer-social">
+        <a href="#"><i class="fab fa-twitter"></i></a>
+        <a href="#"><i class="fab fa-discord"></i></a>
+        <a href="#"><i class="fab fa-instagram"></i></a>
+      </div>
+    </div>
+  </footer>
+
+</body>
+</html>
