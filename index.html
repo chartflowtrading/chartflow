@@ -669,6 +669,34 @@
       .btn { width: auto; padding: 0.78rem 1rem; font-size: 0.95rem; }
       .container { padding: 3.75rem 0; }
     }
+
+    @media (max-width: 820px){
+      /* Hide desktop nav links */
+      nav ul {
+        display: none;
+      }
+
+      /* Keep header clean */
+      .nav {
+        padding: 0.85rem 0;
+      }
+
+      /* Only show primary CTA */
+      .nav-actions .btn-ghost {
+        display: none;
+      }
+
+      .nav-actions .btn-primary {
+        padding: 0.75rem 1.1rem;
+        font-size: 0.95rem;
+      }
+
+      /* Slightly enlarge logo for balance */
+      .brand img {
+        height: 54px;
+      }
+    }
+
   </style>
 </head>
 
