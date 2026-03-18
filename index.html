@@ -5,12 +5,9 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>ChartFlow Trading</title>
 
-  <!-- Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
-
-  <!-- Font Awesome (reliable CDN) -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
 
   <style>
@@ -45,14 +42,14 @@
       font-size: 18px;
     }
 
-    /* layout */
+    section { scroll-margin-top: 110px; }
+
     .container {
       width: min(92%, var(--max));
       margin: 0 auto;
       padding: 4.5rem 0;
     }
 
-    /* header */
     header {
       position: sticky;
       top: 0;
@@ -78,6 +75,7 @@
       gap: 0.75rem;
       text-decoration: none;
       color: var(--white);
+      flex-shrink: 0;
     }
 
     .brand img {
@@ -148,7 +146,6 @@
     }
     .btn-ghost:hover { transform: translateY(-2px); background: rgba(255,255,255,0.08); }
 
-    /* hero */
     .hero {
       position: relative;
       padding: 5.5rem 0 0;
@@ -265,7 +262,6 @@
       font-size: 0.95rem;
     }
 
-    /* section heading */
     .section-head {
       display: flex;
       justify-content: space-between;
@@ -283,14 +279,12 @@
       max-width: 60ch;
     }
 
-    /* light sections */
     .light {
       background: var(--white);
       color: var(--ink);
     }
     .light .section-head p { color: var(--ink-dim); }
 
-    /* cards / grids */
     .grid-3 {
       display: grid;
       grid-template-columns: repeat(3, minmax(0, 1fr));
@@ -344,7 +338,6 @@
     }
     .light .card p { color: var(--ink-dim); }
 
-    /* image strip */
     .image-strip {
       display: grid;
       grid-template-columns: 1.1fr 0.9fr 1fr;
@@ -378,7 +371,6 @@
       pointer-events: none;
     }
 
-    /* list bullets */
     .checklist {
       margin-top: 1rem;
       display: grid;
@@ -395,7 +387,6 @@
     .check i { color: var(--gold); margin-top: 0.22rem; }
     .light .check { color: rgba(14,26,43,0.86); }
 
-    /* what you get layout */
     .value-wrap {
       display: grid;
       grid-template-columns: 0.95fr 1.05fr;
@@ -445,7 +436,6 @@
     }
     .value li i { color: var(--gold); margin-top: 0.22rem; }
 
-    /* testimonials */
     .quote {
       display: grid;
       gap: 0.7rem;
@@ -470,61 +460,98 @@
     .who .name { font-weight: 900; letter-spacing: 0.01em; }
     .who .meta { color: rgba(14,26,43,0.65); font-weight: 650; font-size: 0.95rem; }
 
-    /* pricing-ish */
-    .pricing {
-      display: grid;
-      grid-template-columns: 1fr 1fr 1fr;
-      gap: 1.1rem;
-      align-items: stretch;
+    .single-offer {
+      display: flex;
+      justify-content: center;
       margin-top: 1rem;
     }
 
-    .tier {
+    .offer-card {
+      max-width: 760px;
+      width: 100%;
       border-radius: var(--radius);
-      border: 1px solid var(--border-dark);
+      border: 1px solid rgba(184,157,89,0.35);
       background: #ffffff;
-      box-shadow: var(--shadow-soft);
-      padding: 1.5rem;
-      display: grid;
-      gap: 0.85rem;
-    }
-
-    .tier .label {
-      display: inline-flex;
-      align-items: center;
-      gap: 0.5rem;
-      font-weight: 900;
-      color: var(--ink);
-      letter-spacing: 0.01em;
-    }
-
-    .tier .label i { color: var(--gold); }
-    .tier .desc { color: var(--ink-dim); }
-    .tier .items { list-style: none; display: grid; gap: 0.5rem; margin-top: 0.2rem; }
-    .tier .items li { display: flex; gap: 0.6rem; align-items: flex-start; color: rgba(14,26,43,0.85); font-weight: 650; }
-    .tier .items i { color: var(--gold); margin-top: 0.2rem; }
-
-    .tier.featured {
-      border-color: rgba(184,157,89,0.45);
-      box-shadow: 0 18px 44px rgba(184,157,89,0.18);
-      transform: translateY(-6px);
+      box-shadow: 0 18px 44px rgba(184,157,89,0.14);
+      padding: 2rem;
+      text-align: center;
       position: relative;
       overflow: hidden;
     }
-    .tier.featured::before {
-      content: "Most Popular";
+
+    .offer-card::before {
+      content: "";
       position: absolute;
-      top: 14px;
-      right: 14px;
-      font-size: 0.85rem;
-      font-weight: 900;
-      color: var(--navy);
-      background: rgba(184,157,89,0.95);
-      padding: 0.4rem 0.65rem;
-      border-radius: 999px;
+      inset: 0 0 auto 0;
+      height: 6px;
+      background: linear-gradient(90deg, var(--gold), var(--gold-2));
     }
 
-    /* faq */
+    .offer-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      background: rgba(184,157,89,0.12);
+      color: var(--ink);
+      font-weight: 900;
+      font-size: 0.9rem;
+      padding: 0.55rem 0.9rem;
+      border-radius: 999px;
+      margin-bottom: 1rem;
+      border: 1px solid rgba(184,157,89,0.25);
+    }
+
+    .offer-card h3 {
+      font-size: clamp(2.3rem, 4vw, 3.3rem);
+      color: var(--ink);
+      margin-bottom: 0.35rem;
+      letter-spacing: -0.03em;
+      line-height: 1;
+    }
+
+    .offer-price-note {
+      color: var(--ink-dim);
+      font-size: 1rem;
+      margin-bottom: 1rem;
+      font-weight: 650;
+    }
+
+    .offer-subtext {
+      color: var(--ink-dim);
+      font-size: 1.06rem;
+      max-width: 620px;
+      margin: 0 auto 1.6rem;
+    }
+
+    .offer-items {
+      list-style: none;
+      display: grid;
+      gap: 0.8rem;
+      margin: 0 auto 1.85rem;
+      max-width: 520px;
+      text-align: left;
+    }
+
+    .offer-items li {
+      display: flex;
+      gap: 0.65rem;
+      align-items: flex-start;
+      color: rgba(14,26,43,0.88);
+      font-weight: 650;
+    }
+
+    .offer-items i {
+      color: var(--gold);
+      margin-top: 0.2rem;
+    }
+
+    .offer-meta {
+      color: rgba(14,26,43,0.62);
+      font-size: 0.95rem;
+      margin-top: 1rem;
+      font-weight: 650;
+    }
+
     .faq {
       display: grid;
       gap: 0.8rem;
@@ -563,7 +590,6 @@
       max-width: 90ch;
     }
 
-    /* final CTA */
     .final {
       position: relative;
       overflow: hidden;
@@ -608,7 +634,6 @@
       background: linear-gradient(180deg, rgba(11,20,35,0.06), rgba(11,20,35,0.72));
     }
 
-    /* footer */
     footer {
       border-top: 1px solid rgba(255,255,255,0.08);
       background: #070c15;
@@ -648,19 +673,27 @@
     .footer-links a:hover, .footer-social a:hover { opacity: 1; }
     .footer-social a { font-size: 1.15rem; }
 
-    /* responsive */
     @media (max-width: 980px) {
       .hero-grid { grid-template-columns: 1fr; }
       .hero-media { min-height: 360px; }
       .grid-3 { grid-template-columns: 1fr; }
       .grid-2 { grid-template-columns: 1fr; }
       .value-wrap { grid-template-columns: 1fr; }
-      .value-media { position: relative; top: auto; min-height: 380px; }
+      .value-media { position: relative; top: auto; height: 380px; }
       .image-strip { grid-template-columns: 1fr; }
-      .pricing { grid-template-columns: 1fr; }
-      .tier.featured { transform: none; }
       .final-grid { grid-template-columns: 1fr; }
       nav ul { gap: 1rem; }
+    }
+
+    @media (max-width: 820px){
+      nav ul { display: none; }
+      .nav { padding: 0.85rem 0; }
+      .nav-actions .btn-ghost { display: none; }
+      .nav-actions .btn-primary {
+        padding: 0.75rem 1.1rem;
+        font-size: 0.95rem;
+      }
+      .brand img { height: 54px; }
     }
 
     @media (max-width: 560px) {
@@ -668,45 +701,18 @@
       .brand .wordmark { display: none; }
       .btn { width: auto; padding: 0.78rem 1rem; font-size: 0.95rem; }
       .container { padding: 3.75rem 0; }
+      .hero-media { min-height: 280px; }
+      .offer-card { padding: 1.5rem; }
+      .hero-cta .btn { width: 100%; }
     }
-
-    @media (max-width: 820px){
-      /* Hide desktop nav links */
-      nav ul {
-        display: none;
-      }
-
-      /* Keep header clean */
-      .nav {
-        padding: 0.85rem 0;
-      }
-
-      /* Only show primary CTA */
-      .nav-actions .btn-ghost {
-        display: none;
-      }
-
-      .nav-actions .btn-primary {
-        padding: 0.75rem 1.1rem;
-        font-size: 0.95rem;
-      }
-
-      /* Slightly enlarge logo for balance */
-      .brand img {
-        height: 54px;
-      }
-    }
-
   </style>
 </head>
 
 <body>
 
-  <!-- Header -->
   <header>
     <div class="nav">
       <a class="brand" href="#">
-        <!-- TODO: replace with your real logo path -->
         <img src="assets/ChartflowLogo.png" alt="ChartFlow Logo">
         <span class="wordmark">CHARTFLOW</span>
       </a>
@@ -728,14 +734,13 @@
     </div>
   </header>
 
-  <!-- Hero -->
   <section class="hero">
     <div class="hero-grid">
       <div>
         <h1>Trade With Structure. <br>Not Noise.</h1>
         <p>
           ChartFlow is a private trading community built for disciplined traders who value
-          consistency, risk control, and long-term growth not hype.
+          consistency, risk control, and long-term growth, not hype.
         </p>
 
         <div class="hero-pills">
@@ -751,12 +756,11 @@
         </div>
 
         <div class="microtrust">
-          <strong>Live markets.</strong> Real traders. Every weekday. <span style="opacity:.75;">Access via Whop · Cancel anytime</span>
+          <strong>Live markets.</strong> Real traders. Every weekday. <span style="opacity:.75;">Access via Whop</span>
         </div>
       </div>
 
       <div class="hero-media" aria-label="Luxury trading image">
-        <!-- Premium hero image -->
         <img src="assets/trading-phone-laptop.avif" alt="Trading desk with city lights">
         <div class="overlay"></div>
         <div class="hero-badge">
@@ -767,7 +771,6 @@
     </div>
   </section>
 
-  <!-- Why ChartFlow (Light Section) -->
   <section id="why" class="light">
     <div class="container">
       <div class="section-head">
@@ -812,7 +815,6 @@
     </div>
   </section>
 
-  <!-- What You Get Inside -->
   <section id="inside">
     <div class="container">
       <div class="section-head">
@@ -837,8 +839,8 @@
             <p>Daily structure that keeps you aligned with what matters.</p>
             <ul>
               <li><i class="fa-solid fa-check"></i> Daily bias + key levels</li>
-              <li><i class="fa-solid fa-check"></i> Invalidation points (when to stop)</li>
-              <li><i class="fa-solid fa-check"></i> Session plans (open / mid / close)</li>
+              <li><i class="fa-solid fa-check"></i> Invalidation points</li>
+              <li><i class="fa-solid fa-check"></i> Session plans</li>
               <li><i class="fa-solid fa-check"></i> Trade ideas with context, not spam</li>
             </ul>
           </div>
@@ -872,21 +874,19 @@
               <li><i class="fa-solid fa-check"></i> Trade feedback & reviews</li>
               <li><i class="fa-solid fa-check"></i> Psychology and discipline frameworks</li>
               <li><i class="fa-solid fa-check"></i> Traders helping traders — daily</li>
-              <li><i class="fa-solid fa-check"></i> Clear standards (no noise)</li>
+              <li><i class="fa-solid fa-check"></i> Clear standards</li>
             </ul>
           </div>
 
           <div style="display:flex; gap:0.75rem; flex-wrap:wrap; align-items:center; margin-top:0.25rem;">
             <a class="btn btn-primary" href="https://whop.com/chartflow"><i class="fa-solid fa-crown"></i> Join Now</a>
             <a class="btn btn-ghost" href="#education"><i class="fa-solid fa-arrow-down"></i> Education System</a>
-            <span class="microtrust">Membership access via Whop · Cancel anytime</span>
           </div>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- Education Philosophy (Light) -->
   <section id="education" class="light">
     <div class="container">
       <div class="section-head">
@@ -894,7 +894,7 @@
           <h2>Education That Sticks (Not Just Content)</h2>
           <p>
             ChartFlow isn’t about predicting. It’s about building a repeatable process you can execute
-            daily! Even when your emotions try to take control.
+            daily, even when your emotions try to take control.
           </p>
         </div>
       </div>
@@ -927,7 +927,6 @@
     </div>
   </section>
 
-  <!-- Proof / Testimonials -->
   <section id="proof" class="light">
     <div class="container">
       <div class="section-head">
@@ -977,71 +976,54 @@
 
       <div style="margin-top:1.4rem; display:flex; flex-wrap:wrap; gap:0.75rem; align-items:center;">
         <a class="btn btn-primary" href="https://whop.com/chartflow"><i class="fa-solid fa-crown"></i> Join ChartFlow</a>
-        <span style="color:rgba(14,26,43,0.65); font-weight:650;">Instant access via Whop · Cancel anytime</span>
       </div>
     </div>
   </section>
 
-  <!-- Membership / Tiers (Light) -->
   <section class="light">
     <div class="container">
       <div class="section-head">
         <div>
-          <h2>Membership Includes Everything You Need to Improve</h2>
+          <h2>One Premium Membership. Full Access.</h2>
           <p>
-            You’ll see the most value when you treat ChartFlow like a system: show up, execute the framework,
-            review, repeat.
+            ChartFlow offers one complete package for traders who want the full system:
+            education, live sessions, accountability, and direct support.
           </p>
         </div>
       </div>
 
-      <div class="pricing">
-        <div class="tier">
-          <div class="label"><i class="fa-solid fa-compass"></i> Bronze</div>
-          <div class="desc">Perfect if you need structure and clarity fast.</div>
-          <ul class="items">
-            <li><i class="fa-solid fa-check"></i> Trading Books</li>
-            <li><i class="fa-solid fa-check"></i> Core education library</li>
-            <li><i class="fa-solid fa-check"></i> News & Event Updates</li>
-          </ul>
-        </div>
+      <div class="single-offer">
+        <div class="offer-card">
+          <div class="offer-badge"><i class="fa-solid fa-crown"></i> Premium Membership</div>
+          <h3>$1,000</h3>
+          <div class="offer-price-note">One complete ChartFlow package</div>
+          <p class="offer-subtext">
+            Built for traders who want structure, serious execution, and a high-standard environment
+            designed to help them improve faster.
+          </p>
 
-        <div class="tier featured">
-          <div class="label"><i class="fa-solid fa-crown"></i> Silver</div>
-          <div class="desc">The complete ChartFlow system (most members choose this).</div>
-          <ul class="items">
-            <li><i class="fa-solid fa-check"></i> Live calls </li>
-            <li><i class="fa-solid fa-check"></i> Full education + frameworks</li>
+          <ul class="offer-items">
+            <li><i class="fa-solid fa-check"></i> Full education library</li>
+            <li><i class="fa-solid fa-check"></i> Live trading calls</li>
             <li><i class="fa-solid fa-check"></i> Trade breakdowns & review</li>
-            <li><i class="fa-solid fa-check"></i> Community accountability</li>
-          </ul>
-        </div>
-
-        <div class="tier">
-          <div class="label"><i class="fa-solid fa-shield-halved"></i> Gold</div>
-          <div class="desc">For traders who want higher standards and deeper execution.</div>
-          <ul class="items">
-            <li><i class="fa-solid fa-check"></i> Everything in the Silver package</li>
+            <li><i class="fa-solid fa-check"></i> Community access & accountability</li>
             <li><i class="fa-solid fa-check"></i> Execution discipline systems</li>
-            <li><i class="fa-solid fa-check"></i> Prioritized support (1-on-1) </li>
+            <li><i class="fa-solid fa-check"></i> Prioritized 1-on-1 support</li>
           </ul>
-        </div>
-      </div>
 
-      <div style="margin-top:1.25rem; display:flex; gap:0.75rem; flex-wrap:wrap; align-items:center;">
-        <a class="btn btn-primary" href="https://whop.com/chartflow"><i class="fa-solid fa-crown"></i> Join Now on Whop</a>
-        <a class="btn btn-ghost" href="#faq"><i class="fa-solid fa-circle-question"></i> Read FAQ</a>
+          <a class="btn btn-primary" href="https://whop.com/chartflow"><i class="fa-solid fa-crown"></i> Join Now on Whop</a>
+          <div class="offer-meta">For serious traders only</div>
+        </div>
       </div>
     </div>
   </section>
 
-  <!-- FAQ -->
   <section id="faq" class="light">
     <div class="container">
       <div class="section-head">
         <div>
           <h2>FAQ</h2>
-          <p>Everything people usually want to know before joining. (Clear answers. No fluff.)</p>
+          <p>Everything people usually want to know before joining. Clear answers. No fluff.</p>
         </div>
       </div>
 
@@ -1050,23 +1032,24 @@
           <summary>Is ChartFlow signals only?</summary>
           <p>
             No. ChartFlow is a full system: education, market structure, risk management, execution frameworks,
-            and live context. We do not give alerts. We only share ideas to help build you as a trader. 
+            and live context. We don’t spam alerts. We share ideas that help build you as a trader.
           </p>
         </details>
 
         <details>
           <summary>What markets does ChartFlow cover?</summary>
           <p>
-            Options, stocks, futures, and crypto with a focus on transferable frameworks (levels, structure,
-            invalidation, risk, execution).
+            Options, stocks, futures, and crypto with a focus on transferable frameworks:
+            levels, structure, invalidation, risk, and execution.
           </p>
         </details>
 
         <details>
           <summary>How fast will I see results?</summary>
           <p>
-            Most members notice improvement when they follow the system consistently: show up with a plan,
-            execute defined risk, and review daily/weekly. Trading is skill-based so the edge compounds.
+            Most members notice improvement when they follow the system consistently:
+            show up with a plan, execute defined risk, and review daily or weekly.
+            Trading is skill-based, so the edge compounds.
           </p>
         </details>
 
@@ -1080,14 +1063,13 @@
         <details>
           <summary>Can I cancel anytime?</summary>
           <p>
-            Yes — Whop manages billing and cancellation. No refunds.
+            Membership terms are managed through Whop. Review the offer details on the checkout page before joining.
           </p>
         </details>
       </div>
     </div>
   </section>
 
-  <!-- Final CTA -->
   <section class="final">
     <div class="final-grid">
       <div>
@@ -1103,7 +1085,7 @@
         </div>
 
         <div class="microtrust" style="margin-top:0.8rem;">
-          Access via Whop · Cancel anytime · Built around <strong>risk-first</strong> execution
+          Access via Whop · Built around <strong>risk-first</strong> execution
         </div>
       </div>
 
@@ -1113,7 +1095,6 @@
     </div>
   </section>
 
-  <!-- Footer -->
   <footer>
     <div class="footer-wrap">
       <div class="footer-left">
@@ -1129,7 +1110,6 @@
       </div>
 
       <div class="footer-social">
-        <!-- TODO: replace with your real links -->
         <a href="https://www.instagram.com/chartflowtrading/" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
         <a href="https://whop.com/chartflow" aria-label="Discord"><i class="fa-brands fa-discord"></i></a>
         <a href="#" aria-label="X"><i class="fa-brands fa-x-twitter"></i></a>
